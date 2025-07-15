@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us | StyleSnap</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+  </head>
+<body>  
+     
+    <div class="container">  
+    <div class="navbar">
+        <div class="logo">
+             <a href="index.html"><h1>StyleSnap</h1> </a>
+
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <li> <a href="index.html">Home </a></li>
+                    <li> <a href="products.html">Products </a></li>
+                    <li> <a href="about.html">About </a></li>
+                    <li> <a href="contact.html">Contact </a></li>
+                    <li> <a href="account.html">Account </a></li>
+                    <li id="logoutLink"></li>
+                </ul>
+            </nav>
+            
+            
+            <a href="cart.html"><img  src="img/cart.png" width="25" height="25"></a>
+            <img src="img/menu.png" class="menu-ic"
+             onclick="menutoggle()">
+
+        </div>
+        </div>
+    </body>
+        
+  <style>
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      background: radial-gradient(#fff, #ffd6d6);
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .contact-container h2 {
+  
+  margin-bottom: 30px;
+  color: #333;
+  border-bottom: 3px solid #ff523b;
+  display: inline-block;
+  padding-bottom: 8px;
+}
+
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    .contact-form textarea {
+      resize: vertical;
+    }
+
+    .contact-form button {
+      background-color: #ff523b;
+      color: white;
+      padding: 14px 24px;
+      border: none;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .contact-form button:hover {
+      background-color: #e44e34;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contact-container">
+    <h2>Contact Us</h2>
+    <form class="contact-form" onsubmit="event.preventDefault(); alert('Form submission simulated.');">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <input type="text" name="subject" placeholder="Subject" required />
+      <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </div>
+
+</body>
+</html>

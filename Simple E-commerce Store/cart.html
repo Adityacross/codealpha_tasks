@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Cart | StyleSnap</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;0,800;1,300;1,600;1,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+</head>
+
+<body>
+  <!-- Navbar -->
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html"><h1>StyleSnap</h1></a>
+      </div>
+      <nav>
+        <ul id="menuitems">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="account.html">Account</a></li>
+          <li id="logoutLink"></li>
+        </ul>
+      </nav>
+      <a href="cart.html"><img src="img/cart.png" width="25" height="25" alt="Cart" /></a>
+      <img src="img/menu.png" class="menu-ic" onclick="menutoggle()" alt="Menu" />
+    </div>
+  </div>
+
+  <!-- Cart Items -->
+  <div class="small-container cart-page">
+    <table id="cartTable">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody id="cartItems">
+        <!-- JS will inject cart items here -->
+      </tbody>
+    </table>
+
+    <hr style="margin-top: 30px; border-top: 2px solid #bbb;" />
+
+    <!-- Total Price Section -->
+    <div class="total-price">
+      <table>
+        <tr>
+          <td>Subtotal</td>
+          <td id="subtotal">$0.00</td>
+        </tr>
+        <tr>
+          <td>Tax</td>
+          <td id="tax">$0.00</td>
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td id="total">$0.00</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="ccontainer">
+      <div class="row">
+        <div class="footer-col-1">
+          <a href="index.html"><h1>StyleSnap</h1></a>
+          <p>Style is a way to say who you are without having to speak</p>
+        </div>
+        <div class="footer-col-2">
+          <h3>Shop</h3>
+          <ul>
+            <a href="products.html"><li>Products</li></a>
+            <a href="#reviews"><li style="cursor: pointer;">Reviews</li></a>
+          </ul>
+        </div>
+        <div class="footer-col-3">
+          <h3>Useful Links</h3>
+          <ul>
+            <li onclick="alert('Coupons are not available currently.')" style="cursor: pointer;">Coupons</li>
+            <a href="contact.html"><li>Contact Us</li></a>
+            <a href="about.html"><li>About</li></a>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <p class="Copyright">© 2025 StyleSnap. All rights reserved.</p>
+  </div>
+
+  <!-- JavaScript for Cart -->
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const cartItemsContainer = document.getElementById("cartItems");
+    const subtotalEl = document.getElementById("subtotal");
+    const taxEl = document.getElementById("tax");
+    const totalEl = document.getElementById("total");
+
+    let subtotal = 0;
+
+    if (cart.length === 0) {
+      cartItemsContainer.innerHTML = '<tr><td colspan="3"><p style="text-align:center;">Your cart is empty.</p></td></tr>';
+    } else {
+      cart.forEach(product => {
+  const priceNum = parseFloat(product.price.replace('$', ''));
+  const itemTotal = priceNum * product.quantity;
+  subtotal += itemTotal;
+
+  cartItemsContainer.innerHTML += `
+    <tr>
+      <td data-label="Product">
+        <div class="cart-info">
+          <img src="${product.image}" alt="${product.name}">
+          <div>
+            <p>${product.name}</p>
+            <small>Price: ${product.price}</small><br>
+            <a href="#" onclick="removeItem('${product.id}')">Remove</a>
+          </div>
+        </div>
+      </td>
+
+      <td data-label="Quantity">
+        <input type="number" min="1" value="${product.quantity}" onchange="updateQty('${product.id}', this.value)">
+      </td>
+
+      <td data-label="Subtotal">$${itemTotal.toFixed(2)}</td>
+    </tr>
+  `;
+});
+    }
+
+    const tax = subtotal * 0.2;
+    const total = subtotal + tax;
+
+    subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+    taxEl.textContent = `$${tax.toFixed(2)}`;
+    totalEl.textContent = `$${total.toFixed(2)}`;
+
+    function updateQty(id, qty) {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const item = cart.find(p => p.id === id);
+      if (item) {
+        item.quantity = parseInt(qty);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        location.reload();
+      }
+    }
+
+    function removeItem(id) {
+      let cart = JSON.parse(localStorage.getItem("cart")) || [];
+      cart = cart.filter(p => p.id !== id);
+      localStorage.setItem("cart", JSON.stringify(cart));
+      location.reload();
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StyleSnap | E-commerce Website</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;0,800;1,300;1,600;1,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>  
+    <div class="header"> 
+    <div class="container">  
+    <div class="navbar">
+        <div class="logo">
+             <a href="index.html"><h1>StyleSnap</h1> </a>
+
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <li> <a href="index.html">Home </a></li>
+                    <li> <a href="products.html">Products </a></li>
+                    <li> <a href="about.html">About </a></li>
+                    <li> <a href="contact.html">Contact </a></li>
+                    <li> <a href="account.html">Account </a></li>
+                    <li id="logoutLink"></li>
+
+
+                </ul>
+            </nav>
+            
+            
+            <a href="cart.html"><img  src="img/cart.png" width="25" height="25"></a>
+            <img src="img/menu.png" class="menu-ic" 
+            onclick="menutoggle()">
+        </div>
+
+        <div class="row">
+          <div class="col-1">
+          <h1>Unleash Your Style <br> Shop the Look </h1>
+          <p>"Style is a way to say who you are without having to speak." </p><br>
+          <p class="quote">— Rachel Zoe
+        </p>
+        <a href="#" class="btn">Explore Now &#8594;</a>
+        </div>
+        <div class="col-2">
+          <img src="img/toppng.com-mens-fashion-cool-male-fashion-models-sitti-900x608.png" >
+        </div>
+        </div>
+        </div>
+        </div>
+
+
+        <!-- categoreis -->
+        <div class="categories">
+            <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <img src="img/clothe display.jpg">
+                </div>
+                <div class="col-3">
+                    <img src="img/shoe display.jpg">
+                </div>
+                <div class="col-3">
+                    <img src="img/glasses display.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- featue products -->
+     
+            <div class="small-container">
+                <h2 class="title">Featured Products</h2>
+            <div class="row">
+                
+                <div class="col-4">
+                    <a href="product-details.html?id=1">
+                    <img src="img/ChatGPT Image Jun 21, 2025, 10_23_20 PM.png">
+                    <h4>Red T-shirts</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <p>$25.00</p>
+                    </a>
+                </div>
+                
+
+                
+                <div class="col-4">
+                    <a href="product-details.html?id=2">
+                    <img src="img/ChatGPT Image Jun 21, 2025, 10_21_14 PM.png">
+                    <h4>black T-shirts</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p>$25.00</p>
+                    </a>
+                </div>
+                
+
+
+                
+                <div class="col-4">
+                    <a href="product-details.html?id=3">
+                    <img src="img/mohamed-youssry-KMwpYURfx6E-unsplash.jpg">
+                    <h4>black Urban Hoodie</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>    
+                    </div>
+                    <p>$40.00</p>
+                    </a>
+                </div>
+
+
+                
+                <div class="col-4">
+                    <a href="product-details.html?id=4">
+                    <img src="img/waldo-kleyn-vtnhu9LgScs-unsplash.jpg">
+                    <h4>Oversized Hoodie</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>  
+                    </div>
+                    <p>$35.00</p>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- latest products -->
+       
+    <div class="small-container">
+                <h2 class="title">Latest Products</h2>
+            <div class="row">
+                
+                <div class="col-4">
+                    <a href="product-details.html?id=5">
+                    <img src="img/Tech Joggers.webp">
+                    <h4>Brown Joggers</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <p>$50.00</p>
+                    </a>
+                </div>
+
+                
+                <div class="col-4">
+                    <a href="product-details.html?id=6">
+                    <img src="img/kyle-loftus-d5GlpSOAzzg-unsplash.jpg">
+                    <h4>Black Pants</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star-half-stroke"></i>
+                    </div>
+                    <p>$35.00</p>
+                    </a>
+                </div>
+
+                <div class="col-4">
+                    <a href="products details.html?id=7">
+                    <img src="img/joshua-diaz-48EIci5oOhk-unsplash.jpg">
+                    <h4>Shoes</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>$50.00</p>
+                    </a>
+                </div>
+
+                <div class="col-4">
+                    <a href="products details.html?id=8">
+                    <img src="img/laura-chouette-NoqrVeKJCwE-unsplash.jpg">
+                    <h4>Sunglasses</h4>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p>$45.00</p>
+                    </a>
+                </div>
+                
+            </div>
+        </div>
+
+          
+        <!-- offer -->
+         <div class="offer">
+         <div class="small-container">
+            <div class="row">
+                <div class="col-2">
+                    <a href="products details.html?id=9">
+                    <img src="img/smartwatch.png" class="offer-img">
+                    </a>
+                    </div>
+                    <div class="col-2">
+                        <p>Exclusive Release</p>
+                        <h1>FitTrack Black</h1>
+                        <small>Track your fitness in style with the all-new FitTrack Black — featuring real-time heart rate monitoring, step counting, sleep analysis, and a sleek OLED display. Designed for performance. Built for everyday wear.</small>
+                        <a href="#" class="btn">Buy Now &#8594;</a>
+                    </div>
+               </div>  
+            </div>
+        </div>
+
+<!-- Reviews -->
+         <div class="review" id="review">
+         <div class="small-container">
+            <div class="row">
+                <div class="col-3">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>Great platform with a solid collection of trendy gadgets and apparel. I ordered shoes and they fit perfectly. Just wish the tracking updates were a bit more detailed. Overall, highly satisfied!</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-regular fa-star"></i>
+                    </div>
+                    <img src="img/Piyush .jpg">
+                    <h3>Piyush Kumar</h3>
+               </div> 
+               
+               
+                <div class="col-3">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>Absolutely loved the shopping experience on StyleSnap! The interface is clean, the products are genuine, and delivery was super quick. I bought a black fitness tracker and it came exactly as shown. Will definitely shop again!</p>
+                    <div class="rating">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <img src="img/Balkrishna.jpg">
+                    <h3>Balkrishna Patidar</h3>
+               </div> 
+        </div>
+    </div>
+</div>
+
+
+<!-- footer -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="footer-col-1">
+            <a href="index.html"><h1>StyleSnap</h1> </a>
+                <p>Style is a way to say who you are without having to speak</p>
+            </div>
+            <div class="footer-col-2">
+                <h3>Shop</h3>
+                <ul>
+                    <a href="products.html"><li>Products</li></a>
+                    <a href="#reviews"><li style="cursor: pointer;">Reviews</li></a>        
+                </ul>
+              </div>  
+            
+            <div class="footer-col-3">
+                <h3>Useful Links</h3>
+                <ul>
+                    <div>
+                    <li onclick="alert('Coupons are not available currently.')"
+                    style="cursor: pointer; ">
+                    Coupons
+                    </li>
+                    </div>
+                    <a href="contact.html"><li>Contact Us</li></a>
+                    <a href="about.html"><li>About</li></a>
+                </ul>
+            
+            </div>
+        </div>
+    </div>
+    <hr>
+    <p class="Copyright"> © 2025 StyleSnap. All rights reserved.</p>
+</div>
+
+<script>
+var menuitems = document.getElementById("menuitems");
+menuitems.style.maxHeight = "0px";
+
+function menutoggle(){
+    if(menuitems.style.maxHeight == "0px"){
+        menuitems.style.maxHeight = "200px";
+    }
+    else{
+        menuitems.style.maxHeight = "0px";
+    }
+}
+
+ 
+  function logoutUser() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    window.location.href = "account.html"; // or redirect to homepage
+  }
+
+  window.onload = function () {
+    const logoutLink = document.getElementById("logoutLink");
+    const token = localStorage.getItem("token");
+    const user = JSON.parse(localStorage.getItem("user"));
+
+    if (token && user) {
+      logoutLink.innerHTML = `<a href="#" onclick="logoutUser()">Logout</a>`;
+    } else {
+      logoutLink.innerHTML = `<a href="account.html">Login / Register</a>`;
+    }
+  };
+
+
+</script>
+</body>
+  <script src="script.js"></script>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Product Details | StyleSnap</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,300;0,600;0,800;1,300;1,600;1,800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+  <div class="container">
+    <div class="navbar">
+      <div class="logo">
+        <a href="index.html"><h1>StyleSnap</h1></a>
+      </div>
+      <nav>
+        <ul id="menuitems">
+                    <li> <a href="index.html">Home </a></li>
+                    <li> <a href="products.html">Products </a></li>
+                    <li> <a href="about.html">About </a></li>
+                    <li> <a href="contact.html">Contact </a></li>
+                    <li> <a href="account.html">Account </a></li>
+                    <li id="logoutLink"></li>
+                </ul>
+      </nav>
+      <a href="cart.html"><img  src="img/cart.png" width="25" height="25"></a>
+      <img src="img/menu.png" class="menu-ic" onclick="menutoggle()" />
+    </div>
+  </div>
+
+  <!-- Product Details -->
+  <div class="small-container single-prod">
+    <div class="row">
+      <div class="col-2">
+        <img id="product-image" src="" width="59%" />
+      </div>
+      <div class="col-2">
+        <p id="product-category">Home / Category</p>
+        <h1 id="product-name">Product Name</h1>
+        <h4 id="product-price">$00.00</h4>
+        <select>
+          <option>Select Size</option>
+          <option>Large</option>
+          <option>Medium</option>
+          <option>Small</option>
+        </select>
+        <input type="number" value="1" />
+        <a href="#" class="btn" id="addToCartBtn">Add To Cart</a>
+        <h3>Product Details <i class="fa fa-indent"></i></h3>
+        <br />
+        <p id="product-desc" class="product-desc">Loading product description...</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <a href="index.html"><h1>StyleSnap</h1></a>
+          <p>Style is a way to say who you are without having to speak</p>
+        </div>
+          <div class="footer-col-2">
+                <h3>Shop</h3>
+                <ul>
+                    <a href="products.html"><li>Products</li></a>
+                    <a href="#reviews"><li style="cursor: pointer;">Reviews</li></a>        
+                </ul>
+              </div>  
+        
+        <div class="footer-col-3">
+          <h3>Useful Links</h3>
+          <ul>
+                    <div>
+                    <li onclick="alert('Coupons are not available currently.')"
+                    style="cursor: pointer;">
+                    Coupons
+                    </li>
+                    </div>
+                    <a href="contact.html"><li>Contact Us</li></a>
+                    <a href="about.html"><li>About</li></a>
+                    
+                </ul>
+        </div>
+      </div>
+    </div>
+    <hr />
+    <p class="Copyright">© 2025 StyleSnap. All rights reserved.</p>
+  </div>
+
+  <!-- Product Data Script -->
+  <script>
+    const products = [
+      
+      {
+        id: "7",
+        name: "Classic Shoes",
+        price: "$50.29",
+        image: "img/joshua-diaz-48EIci5oOhk-unsplash.jpg",
+        description: "Comfortable and durable shoes with classic design.",
+        category: "Shoes"
+      },
+      {
+        id: "8",
+        name: "Stylish Sunglasses",
+        price: "$45.00",
+        image: "img/laura-chouette-NoqrVeKJCwE-unsplash.jpg",
+        description: "Trendy UV-protected sunglasses to complete your fashion look.",
+        category: "Accessories"
+      },
+      {
+        id: "9",
+        name: "FitTrack Black",
+        price: "$60.00",
+        image: "img/smartwatch.png",
+        description: "FitTrack Black — featuring real-time heart rate monitoring, step counting, sleep analysis, and a sleek OLED display. Designed for performance. Built for everyday wear.",
+        category: "Accessories"
+      }
+    ];
+
+     const params = new URLSearchParams(window.location.search);
+  const productId = params.get("id");
+  const product = products.find(p => p.id === productId);
+
+  if (product) {
+    document.getElementById("product-image").src = product.image;
+    document.getElementById("product-name").textContent = product.name;
+    document.getElementById("product-price").textContent = product.price;
+    document.getElementById("product-category").textContent = `Home / ${product.category}`;
+    document.getElementById("product-desc").textContent = product.description;
+  } else {
+    document.querySelector(".single-prod").innerHTML = "<h2>Product not found</h2>";
+  }
+
+  // Add to Cart Logic
+  document.getElementById("addToCartBtn").addEventListener("click", function(e) {
+    e.preventDefault();
+    if (!product) return;
+
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    const existing = cart.find(p => p.id === product.id);
+
+    if (existing) {
+      existing.quantity += 1;
+    } else {
+      cart.push({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image,
+        quantity: 1
+      });
+    }
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+    alert("Product added to cart!");
+  });
+
+</script>
+
+</body>
+</html>

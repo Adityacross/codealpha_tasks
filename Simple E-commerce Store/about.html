@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us | StyleSnap</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <body>  
+     
+    <div class="container">  
+    <div class="navbar">
+        <div class="logo">
+             <a href="index.html"><h1>StyleSnap</h1> </a>
+
+            </div>
+            <nav>
+                <ul id="menuitems">
+                    <li> <a href="index.html">Home </a></li>
+                    <li> <a href="products.html">Products </a></li>
+                    <li> <a href="about.html">About </a></li>
+                    <li> <a href="contact.html">Contact </a></li>
+                    <li> <a href="account.html">Account </a></li>
+                    <li id="logoutLink"></li>
+                </ul>
+            </nav>
+            
+            
+            <a href="cart.html"><img  src="img/cart.png" width="25" height="25"></a>
+            <img src="img/menu.png" class="menu-ic"
+             onclick="menutoggle()">
+
+        </div>
+        </div>
+    </body>
+  <style>
+    body {
+      font-family: 'Nunito Sans', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(#fff, #ffd6d6);
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: 60px auto;
+      background: #fff;
+      padding: 50px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .about-container h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 36px;
+      border-bottom: 3px solid #ff523b;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .about-container p {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #333;
+    }
+
+    .mission-section {
+      margin-top: 40px;
+    }
+
+    .mission-section h2 {
+      color: #ff523b;
+      margin-bottom: 15px;
+    }
+
+    strong a {
+      color: #000;              
+      text-decoration: none;    
+    }
+
+    strong a:hover {
+       text-decoration: underline;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="about-container">
+    <h1>About Us</h1>
+
+    <p>At <strong ><a href="index.html">StyleSnap</a></strong>, we believe that fashion should be easy, expressive, and accessible. We're a digital-first clothing and accessories brand focused on blending style and technology to make shopping effortless for everyone. Whether you're looking for trendy streetwear, classic essentials, or accessories to complete your look — we’ve got you covered.</p>
+
+    <div class="mission-section">
+      <h2>Our Mission</h2>
+      <p>To empower individuals to express themselves through fashion by providing stylish, affordable, and sustainable apparel. We aim to bring you the latest trends with a seamless shopping experience, backed by quality service and community values.</p>
+    </div>
+
+    
+  </div>
+
+</body>
+</html>
