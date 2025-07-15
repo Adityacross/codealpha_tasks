@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Collaboard - Personal Workspace</title>
+
+  <link rel="stylesheet" href="https://cdn.tailwindcss.com">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-gray-50">
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="header-left">
+        <h1 class="logo cursor-pointer" onclick="window.location.href='home.html'">Collaboard</h1>
+        <div class="workspace-selector">
+          <select class="workspace-dropdown" onchange="switchWorkspace(this)">
+            <option value="team.html">Team Workspace</option>
+            <option value="personal.html" selected>Personal Projects</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="header-right">
+        <button class="new-board-btn" onclick="openTaskModal('todo')">
+          <i class="fas fa-plus btn-icon"></i> New Task
+        </button>
+
+        <div class="relative ml-4 w-48">
+          <div onclick="toggleUserMenu()" id="userMenuButton"
+               class="workspace-dropdown flex items-center justify-between px-3 py-2 bg-white border border-gray-300 rounded-md text-gray-700 shadow-sm hover:border-indigo-500 cursor-pointer">
+            <span id="userName" class="font-medium">User</span>
+            <i class="fas fa-chevron-down text-xs text-gray-600 ml-2"></i>
+          </div>
+          <div id="userDropdown"
+               class="hidden absolute right-0 mt-1 w-full bg-white border border-gray-300 rounded-md shadow-lg z-50">
+            <div onclick="logout()"
+                 class="px-4 py-2 text-sm text-gray-700 hover:bg-indigo-100 hover:text-indigo-700 cursor-pointer">
+              Logout
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="board-header">
+      <h2 class="board-title">Personal Workspace Board</h2>
+      <div class="last-updated">
+        <i class="fas fa-clock mr-2"></i>
+        <span>Updated just now</span>
+      </div>
+    </div>
+
+    <!-- Board with static columns -->
+    
+<div class="board-container">
+            <!-- Backlog Column -->
+            <div class="column" data-column-id="backlog">
+                <div class="column-header">
+                  <div class="flex justify-between items-center">
+                    <h3 class="column-title" data-column-id="backlog">Backlog</h3>
+                    <div class="space-x-2">
+                     <button onclick="editColumn('backlog')"><i class="fas fa-edit"></i></button>
+                    <button onclick="deleteColumn('backlog')"><i class="fas fa-trash"></i></button>
+              </div>
+           </div>
+                    <span class="task-count"></span>
+                </div>
+                <div class="task-list"></div>
+                <button class="add-task-btn" onclick="openTaskModal('backlog')">
+                    <i class="fas fa-plus mr-2"></i> Add task
+                </button>
+            </div>
+
+            <!-- Todo Column -->
+            <div class="column" data-column-id="todo">
+            <div class="column-header">
+            <div class="flex justify-between items-center">
+                 <h3 class="column-title" data-column-id="todo">To Do</h3>
+                 <div class="space-x-2">
+            <button onclick="editColumn('todo')"><i class="fas fa-edit"></i></button>
+            <button onclick="deleteColumn('todo')"><i class="fas fa-trash"></i></button>
+              </div>
+           </div>
+                <span class="task-count">0</span>
+              </div>
+           <div class="task-list"></div>
+              <button class="add-task-btn" onclick="openTaskModal('todo')">
+               <i class="fas fa-plus mr-2"></i> Add task
+             </button>
+            </div>
+
+
+            <!-- In Progress Column -->
+            <div class="column" data-column-id="in-progress">
+                <div class="column-header">
+                  <div class="flex justify-between items-center">
+                    <h3 class="column-title" data-column-id="in-progress">In Progress</h3>
+                    <div class="space-x-2">
+            <button onclick="editColumn('in-progress')"><i class="fas fa-edit"></i></button>
+            <button onclick="deleteColumn('in-progress')"><i class="fas fa-trash"></i></button>
+              </div>
+              </div>
+                    <span class="task-count"></span>
+                </div>
+                <div class="task-list"></div>
+                <button class="add-task-btn" onclick="openTaskModal('in-progress')">
+                    <i class="fas fa-plus mr-2"></i> Add task
+                </button>
+            </div>
+
+            <!-- Review Column -->
+            <div class="column" data-column-id="review">
+                <div class="column-header">
+                  <div class="flex justify-between items-center">
+                    <h3 class="column-title" data-column-id="review">Review</h3>
+                    <div class="space-x-2">
+                    <button onclick="editColumn('review')"><i class="fas fa-edit"></i></button>
+                    <button onclick="deleteColumn('review')"><i class="fas fa-trash"></i></button>
+                  </div>
+              </div>
+                    <span class="task-count"></span>
+                </div>
+                <div class="task-list"></div>
+                <button class="add-task-btn" onclick="openTaskModal('review')">
+                    <i class="fas fa-plus mr-2"></i> Add task
+                </button>
+            </div>
+
+            <!-- Done Column -->
+            <div class="column" data-column-id="done">
+                <div class="column-header">
+                  <div class="flex justify-between items-center">
+                    <h3 class="column-title" data-column-id="done">Done</h3>
+                    <div class="space-x-2">
+                    <button onclick="editColumn('done')"><i class="fas fa-edit"></i></button>
+                    <button onclick="deleteColumn('done')"><i class="fas fa-trash"></i></button>
+                  </div>
+                    </div>
+                    <span class="task-count"></span>
+                </div>
+                <div class="task-list"></div>
+                <button class="add-task-btn" onclick="openTaskModal('done')">
+                    <i class="fas fa-plus mr-2"></i> Add task
+                </button>
+            </div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="taskModal" class="task-modal hidden">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Add Task</h3>
+        <button onclick="closeTaskModal()" class="modal-close-btn"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <form id="taskForm">
+          <input type="hidden" id="targetColumn">
+          <div class="form-group">
+            <label for="taskTitle">Title</label>
+            <input type="text" id="taskTitle" required />
+          </div>
+          <div class="form-group">
+            <label for="taskDescription">Description</label>
+            <textarea id="taskDescription" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="taskDueDate">Due Date</label>
+            <input type="date" id="taskDueDate" />
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button onclick="closeTaskModal()" class="cancel-btn">Cancel</button>
+        <button class="submit-btn" onclick="addNewTask()">Add Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Authentication & Workspace Script -->
+  <script>
+    const token = localStorage.getItem('token');
+    if (!token) {
+      window.location.href = "login.html";
+    } else {
+      try {
+        const payload = JSON.parse(atob(token.split('.')[1]));
+        document.getElementById('userName').innerText = payload.name || "User";
+      } catch (err) {
+        localStorage.removeItem('token');
+        window.location.href = "login.html";
+      }
+    }
+
+    function toggleUserMenu() {
+      document.getElementById('userDropdown').classList.toggle('hidden');
+    }
+
+    function logout() {
+      localStorage.removeItem('token');
+      window.location.href = "login.html";
+    }
+
+    function switchWorkspace(select) {
+      window.location.href = select.value;
+    }
+  </script>
+
+  <!-- App Logic -->
+  <script src="script.js"></script>
+</body>
+</html>
